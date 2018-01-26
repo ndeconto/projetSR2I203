@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <?php
+session_start();
+if (!isset($_SESSION['count'])) {
+  $_SESSION['count'] = 0;
+} else {
+  $_SESSION['count']++;
+}
+
 $cookie_name = "user";
 $cookie_value = "Timon est moche";
 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
@@ -8,6 +15,8 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1
 <body>
 
 <?php
+echo "You access this page for the ". $_SESSION['count']. "th time<br><br>";
+//echo htmlspecialchars(SID); ---------> voir la fonction htmlspecialchars
 if(!isset($_COOKIE[$cookie_name])) {
      echo "Cookie named '" . $cookie_name . "' is not set!";
 } else {
