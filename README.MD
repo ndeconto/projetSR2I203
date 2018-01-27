@@ -7,3 +7,7 @@ penser à raconter dans le rapport :
 			AllowOverride AuthConfig
 		</Directory>
 	- ne pas oublier de reboot !
+	
+- pour la faille XSS :
+	exemple de username:  <script>alert("Your cookies " + document.cookie + " have been sent to www.evil.com");</script>
+	
